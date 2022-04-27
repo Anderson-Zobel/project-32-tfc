@@ -8,10 +8,10 @@ export default class Teams extends Model {
 
 Teams.init({
     id: {
-      type: DataTypes.NUMBER,
       primaryKey: true,
-      unique: true,
       autoIncrement: true,
+      unique: true,
+      type: DataTypes.NUMBER,
     },
     team_name: {
       type: DataTypes.STRING,
