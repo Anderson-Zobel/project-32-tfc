@@ -10,3 +10,5 @@ login.post(
   loginValidation,
   controllers.login
 )
+
+export default login;
