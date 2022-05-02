@@ -23,7 +23,7 @@ services:
       db:
         condition: service_healthy
     ports:
-      - 3001:3001
+      - 3005:3005
     environment:
       - PORT=3001
       # Os dados abaixo se referem ao container `db`

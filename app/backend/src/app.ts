@@ -9,6 +9,7 @@ class App {
     this.app = express();
     this.config();
     // ...
+    this.app.use()
   }
 
   private config(): void {
