@@ -1,0 +1,3 @@
+bcryptjs
+@types/bcryptjs
+sequelize-typescript
