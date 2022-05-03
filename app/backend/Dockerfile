@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 3005
+EXPOSE 3001
 
 ENTRYPOINT [ "npm", "start" ]
