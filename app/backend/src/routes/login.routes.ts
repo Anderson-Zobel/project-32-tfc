@@ -1,14 +1,14 @@
 import { Router } from 'express';
+import validations from '../middlewares'
 import controllers from '../database/controller';
-import loginValidation from '../middlewares/login.validation';
 
 const login = Router();
 
-
 login.post(
-  '/login',
-  loginValidation,
-  controllers.login
-)
+  '/login', 
+  validations.login,
+  controllers.login,
+);
+
 
 export default login;

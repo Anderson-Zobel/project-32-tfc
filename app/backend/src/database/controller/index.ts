@@ -1,4 +1,4 @@
-import login from './user'
+import login from './login'
 
 export default {
   login,

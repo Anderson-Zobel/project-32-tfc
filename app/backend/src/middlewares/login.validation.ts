@@ -1,25 +1,20 @@
 import { Request, Response, NextFunction } from 'express';
 
-export default function login(req: Request, res: Response, next: NextFunction) {
+export default function validationLogin(req: Request, res: Response, next: NextFunction) {
   const { email, password } = req.body;
+  const regex = /\S+@\S+\.\S+/;
+  const isEmailValid = regex.test(email);
 
   if (!email) {
     return res.status(400).json({ message: 'All fields must be filled' });
   }
 
+  if (!isEmailValid) {
+    return res.status(400).json({ message: '"email" must be a valid email' });
+  }
+
   if (!password) {
     return res.status(400).json({ message: 'All fields must be filled' });
   }
-
-  if (typeof email !== 'string' || typeof password !== 'string') {
-    return res.status(400).json({ message: 'email and password must be a string'});
-  }
-
-  const emailVerify = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if(!emailVerify.test(email)) {
-    return res.status(400).json({ message: 'Incorrect email or password' });
-  }
-  
-  
+  return next();
 }
