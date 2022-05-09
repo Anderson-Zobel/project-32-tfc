@@ -1,5 +1,5 @@
 import * as express from 'express';
-// import middlewares from './middlewares'
+import middlewares from './middlewares'
 import loginRoute from './routes/login.routes'
 
 
@@ -30,7 +30,7 @@ class App {
 
     this.app.use('/login', loginRoute);
 
-    // this.app.use(middlewares.errorHandler)
+    this.app.use(middlewares.errorHandler)
   }
 
   // ...

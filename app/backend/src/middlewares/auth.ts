@@ -1,6 +1,6 @@
+import { NextFunction, Request, Response } from 'express';
 import * as jwt from 'jsonwebtoken';
 import * as fs from 'fs';
-import { NextFunction, Request, Response } from 'express';
 
 const jwtSecret = fs.readFileSync('jwt.evaluation.key', 'utf-8');
 

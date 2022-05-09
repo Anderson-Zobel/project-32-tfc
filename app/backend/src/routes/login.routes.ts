@@ -1,22 +1,21 @@
 import { Router } from 'express';
-import loginValidation from '../middlewares/login.validation'
-import auth from '../middlewares/auth'
-import LoginController from '../database/controller/login.controller';
+import validations from '../middlewares'
+import controllers from '../database/controllers';
 
 const login = Router();
 
-const loginControllers = new LoginController();
+// const loginControllers = new LoginController();
 
 login.post(
-  '/login', 
-  loginValidation,
-  async (req, res, next) => loginControllers.login(req, res, next),
+  '/', 
+  validations.login,
+  controllers.login.log,
 );
 
 login.get(
-  '/validate',
-  auth,
-  async (req, res, next) => loginControllers.validation(req, res),
+  '/validate', 
+  validations.auth,
+  controllers.login.validate,
 )
 
 export default login;

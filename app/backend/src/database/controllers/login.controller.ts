@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import ILogin from '../../interfaces/ILogin';
 import LoginService from '../services/login.service';
 
-export default class LoginController {
+class LoginController {
   constructor(private loginService = new LoginService()) {}
 
   async login(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
@@ -23,4 +23,15 @@ export default class LoginController {
     const user = await this.loginService.getUser(data);
     return res.status(200).json(user);
   }
+}
+
+const login = new LoginController();
+
+const log = async (req: Request, res: Response, next: NextFunction) => login.login(req, res, next)
+
+const validate =  async (req: Request, res: Response) => login.validation(req, res)
+
+export default {
+  log,
+  validate,
 }

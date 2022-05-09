@@ -12,13 +12,13 @@ export default function loginValidation(req: Request, res: Response, next: NextF
   }
 
   const validEmail = /\S+@\S+\.\S+/;
-
+  
   if (!validEmail.test(email)) {
     return res.status(401).json({ message: 'Incorrect email or password' });
   }
 
-  if (password.length <= 6 || typeof password !== 'string') {
-    return res.status(401).json({ message: 'Incorrect email or password' });
-  }
+  // if (password.length <= 6 || typeof password !== 'string') {
+  //   return res.status(401).json({ message: 'Incorrect email or password' });
+  // }
   next();
 }
