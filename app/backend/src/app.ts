@@ -1,5 +1,7 @@
 import * as express from 'express';
+// import middlewares from './middlewares'
 import loginRoute from './routes/login.routes'
+
 
 class App {
   public app: express.Express;
@@ -26,7 +28,9 @@ class App {
 
     this.app.use(express.json());
 
-    this.app.use(loginRoute);
+    this.app.use('/login', loginRoute);
+
+    // this.app.use(middlewares.errorHandler)
   }
 
   // ...
