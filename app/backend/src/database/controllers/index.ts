@@ -1,5 +1,9 @@
-import login from './login.controller'
+import loginController from './login.controller'
+import teamController from './team.controller'
+import matchController from './match.controller'
 
 export default {
-  login,
+  loginController,
+  teamController,
+  matchController,
 }

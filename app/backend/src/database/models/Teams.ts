@@ -3,7 +3,7 @@ import db from '.';
 
 export default class Teams extends Model {
   public id: number;
-  public team_name: string;
+  public teamName: string;
 }
 
 Teams.init({
@@ -13,7 +13,7 @@ Teams.init({
       unique: true,
       type: DataTypes.NUMBER,
     },
-    team_name: {
+    teamName: {
       type: DataTypes.STRING,
     },
 

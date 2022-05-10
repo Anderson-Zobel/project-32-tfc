@@ -1,6 +1,8 @@
 import * as express from 'express';
 import middlewares from './middlewares'
 import loginRoute from './routes/login.routes'
+import teamRoute from './routes/team.routes'
+import matchRoute from './routes/match.routes'
 
 
 class App {
@@ -29,6 +31,8 @@ class App {
     this.app.use(express.json());
 
     this.app.use('/login', loginRoute);
+    this.app.use('/teams', teamRoute);
+    this.app.use('/matches', matchRoute);
 
     this.app.use(middlewares.errorHandler)
   }

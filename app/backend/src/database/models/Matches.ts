@@ -4,11 +4,11 @@ import Teams from './Teams'
 
 export default class Matches extends Model {
   public id: number;
-  public home_team: string;
-  public home_team_goals: number;
-  public away_team: number;
-  public awat_team_goals: number;
-  public in_progress: number; 
+  public homeTeam: string;
+  public homeTeamGoals: number;
+  public awayTeam: number;
+  public awayTeamGoals: number;
+  public inProgress: number; 
 }
 
 Matches.init({
@@ -19,7 +19,7 @@ Matches.init({
     type: DataTypes.NUMBER,
   },
 
-  home_team: {
+  homeTeam: {
     type: DataTypes.INTEGER,
     references: {
       model: Teams,
@@ -27,12 +27,12 @@ Matches.init({
     }
   },
 
-  home_team_goals: {
+  homeTeamGoals: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
 
-  away_team: {
+  awayTeam: {
     type: DataTypes.INTEGER,
     references: {
       model: Teams,
@@ -40,28 +40,28 @@ Matches.init({
     }
   },
 
-  awat_team_goals: {
+  awayTeamGoals: {
     allowNull: false,
     type: DataTypes.INTEGER,
   },
 
-  in_progress: {
+  inProgress: {
     type: DataTypes.INTEGER,    
   },
 
 }, {
   underscored: true,
   sequelize: db,
-  tableName: 'teams',
+  tableName: 'matches',
   timestamps: false,
 });
 
-Matches.hasOne(Teams, {
-  foreignKey: 'home_team',
-  as: 'home_team',
+Matches.belongsTo(Teams, {
+  foreignKey: 'homeTeam',
+  as: 'teamHome',
 });
 
-Matches.hasOne(Teams, {
-  foreignKey: 'away_team',
-  as: 'away_team',
+Matches.belongsTo(Teams, {
+  foreignKey: 'awayTeam',
+  as: 'teamAway',
 })

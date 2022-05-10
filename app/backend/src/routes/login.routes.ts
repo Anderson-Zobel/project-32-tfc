@@ -4,18 +4,16 @@ import controllers from '../database/controllers';
 
 const login = Router();
 
-// const loginControllers = new LoginController();
-
 login.post(
   '/', 
   validations.login,
-  controllers.login.log,
+  controllers.loginController.login,
 );
 
 login.get(
   '/validate', 
   validations.auth,
-  controllers.login.validate,
+  controllers.loginController.validate,
 )
 
 export default login;
