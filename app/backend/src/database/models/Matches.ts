@@ -6,9 +6,9 @@ export default class Matches extends Model {
   public id: number;
   public homeTeam: string;
   public homeTeamGoals: number;
-  public awayTeam: number;
+  public awayTeam: string;
   public awayTeamGoals: number;
-  public inProgress: number; 
+  public inProgress: boolean; 
 }
 
 Matches.init({
