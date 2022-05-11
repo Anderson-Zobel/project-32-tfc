@@ -15,7 +15,12 @@ match.post(
 );
 
 match.patch(
+  '/:id',
+  controllers.matchController.updateCurrentMatch
+)
+
+match.patch(
   '/:id/finish',
-  controllers.matchController.updateMatches,
+  controllers.matchController.finishMatches,
 )
 export default match;

@@ -1,6 +1,6 @@
 import Teams from '../models/Teams';
 import Matches from '../models/Matches';
-import IMatch from '../../interfaces/IMatch'
+import { IMatch, IMatchUpdate } from '../../interfaces/IMatch'
 
 const getAll = async () => (Matches.findAll({
   include: [
@@ -34,9 +34,15 @@ const updateMatch = async (id: string) => {
 
 const teamById = async (id: string) => Teams.findByPk(id);
 
+const updateCurrentMatch = async ({ homeTeamGoals, awayTeamGoals, id }: IMatchUpdate) => {
+  await Matches.update({ homeTeamGoals, awayTeamGoals }, { where: { id } });
+};
+
+
 export default {
   getAll,
   createMatch,
   updateMatch,
   teamById,
+  updateCurrentMatch,
 }

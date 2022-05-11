@@ -20,7 +20,7 @@ const createMatches = async (req: Request, res: Response, next: NextFunction) =>
   }
 }
 
-const updateMatches = async (req: Request, res: Response, next: NextFunction) => {
+const finishMatches = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
     await MatchService.updateMatch(id)
@@ -31,8 +31,23 @@ const updateMatches = async (req: Request, res: Response, next: NextFunction) =>
   }
  }
 
+const updateCurrentMatch = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { id } = req.params;
+    const { homeTeamGoals, awayTeamGoals } = req.body;
+
+    await MatchService.updateCurrentMatch({ id, homeTeamGoals, awayTeamGoals });
+    return res.status(200).json({ message: 'update matches in progress'});
+
+  } catch (e) {
+    return next (e);
+  }
+}
+
+
 export default {
   findMatches,
   createMatches,
-  updateMatches,
+  finishMatches,
+  updateCurrentMatch,
 }
