@@ -3,6 +3,7 @@ import middlewares from './middlewares'
 import loginRoute from './routes/login.routes'
 import teamRoute from './routes/team.routes'
 import matchRoute from './routes/match.routes'
+import leaderboardRoute from './routes/leaderBoard.routes'
 
 
 class App {
@@ -33,6 +34,7 @@ class App {
     this.app.use('/login', loginRoute);
     this.app.use('/teams', teamRoute);
     this.app.use('/matches', matchRoute);
+    this.app.use('/leaderboard', leaderboardRoute);
 
     this.app.use(middlewares.errorHandler)
   }

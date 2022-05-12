@@ -4,9 +4,9 @@ import Teams from './Teams'
 
 export default class Matches extends Model {
   public id: number;
-  public homeTeam: string;
+  public homeTeam: number;
   public homeTeamGoals: number;
-  public awayTeam: string;
+  public awayTeam: number;
   public awayTeamGoals: number;
   public inProgress: boolean; 
 }
