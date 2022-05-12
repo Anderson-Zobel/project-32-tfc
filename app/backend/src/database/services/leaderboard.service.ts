@@ -1,16 +1,16 @@
 import LeaderBoard from '../../interfaces/ILeaderboard';
 import { IMatch } from '../../interfaces/IMatch';
 import TeamsModel from '../models/Teams';
-import MatchesModel from '../models/Matches';
+import Matches from '../models/Matches';
 
-class LeaderboardService {
-  static matchesByHomeId = async (id: number) => (
-    MatchesModel.findAll({ where: { homeTeam: id, inProgress: false } })
+
+  const matchesById = async (id: number) => (
+    Matches.findAll({ where: { homeTeam: id, inProgress: false } })
   );
 
-  static showTotalGames = (matches: IMatch[]) => matches.length;
+  const allGames = (matches: IMatch[]) => matches.length;
 
-  static showTotalWins = (matches: IMatch[]) => {
+  const allWins = (matches: IMatch[]) => {
     let count = 0;
 
     matches.forEach((match) => {
@@ -22,7 +22,7 @@ class LeaderboardService {
     return count;
   };
 
-  static showTotalDraws = (matches: IMatch[]) => {
+  const allDraws = (matches: IMatch[]) => {
     let count = 0;
 
     matches.forEach((match) => {
@@ -34,7 +34,7 @@ class LeaderboardService {
     return count;
   };
 
-  static showTotalLosses = (matches: IMatch[]) => {
+  const allLoses = (matches: IMatch[]) => {
     let count = 0;
 
     matches.forEach((match) => {
@@ -46,7 +46,7 @@ class LeaderboardService {
     return count;
   };
 
-  static showGoalsFavor = (matches: IMatch[]) => {
+  const positiveGoals = (matches: IMatch[]) => {
     let count = 0;
 
     matches.forEach((match) => {
@@ -56,7 +56,7 @@ class LeaderboardService {
     return count;
   };
 
-  static showGoalsOwn = (matches: IMatch[]) => {
+  const goalsOwn = (matches: IMatch[]) => {
     let count = 0;
 
     matches.forEach((match) => {
@@ -66,39 +66,39 @@ class LeaderboardService {
     return count;
   };
 
-  static calculateTotalPoints = (wins: number, draws: number) => (wins * 3) + draws;
+  const totalPoints = (wins: number, draws: number) => (wins * 3) + draws;
 
-  static calculateGoalsBalance = (goalsFavor: number, goalsOwn: number) => goalsFavor - goalsOwn;
+  const goalsBalance = (goalsFavor: number, goalsOwn: number) => goalsFavor - goalsOwn;
 
-  static calculateEfficiency = (totalPoints: number, totalGames: number) => (
-    +((totalPoints / (totalGames * 3)) * 100).toFixed(2)
+  const eff = (totalPoints: number, allGames: number) => (
+    +((totalPoints / (allGames * 3)) * 100).toFixed(2)
   );
 
-  static buildResult = (matches: IMatch[]) => {
-    const resultTotalGames = this.showTotalGames(matches);
-    const resultTotalVictories = this.showTotalWins(matches);
-    const resultTotalDraws = this.showTotalDraws(matches);
-    const resultTotalLosses = this.showTotalLosses(matches);
-    const resultGoalsFavor = this.showGoalsFavor(matches);
-    const resultGoalsOwn = this.showGoalsOwn(matches);
-    const resultTotalPoints = this.calculateTotalPoints(resultTotalVictories, resultTotalDraws);
-    const resultGoalsBalance = this.calculateGoalsBalance(resultGoalsFavor, resultGoalsOwn);
-    const resultEfficiency = this.calculateEfficiency(resultTotalPoints, resultTotalGames);
+  const setupResult = (matches: IMatch[]) => {
+    const resultAllGames = allGames(matches);
+    const totalVictories = allWins(matches);
+    const totalDraws = allDraws(matches);
+    const totalLosses = allLoses(matches);
+    const totalGoals = positiveGoals(matches);
+    const totalGoasOwn = goalsOwn(matches);
+    const totalPointsResult = totalPoints(totalVictories, totalDraws);
+    const goalsBalanceResult = goalsBalance(totalGoals, totalGoasOwn);
+    const efficiency = eff(totalPointsResult, resultAllGames);
 
     return {
-      totalPoints: resultTotalPoints,
-      totalGames: resultTotalGames,
-      totalVictories: resultTotalVictories,
-      totalDraws: resultTotalDraws,
-      totalLosses: resultTotalLosses,
-      goalsFavor: resultGoalsFavor,
-      goalsOwn: resultGoalsOwn,
-      goalsBalance: resultGoalsBalance,
-      efficiency: resultEfficiency,
+      totalPoints: totalPointsResult,
+      totalGames: resultAllGames,
+      totalVictories: totalVictories,
+      totalDraws: totalDraws,
+      totalLosses: totalLosses,
+      goalsFavor: totalGoals,
+      goalsOwn: totalGoasOwn,
+      goalsBalance: goalsBalanceResult,
+      efficiency: efficiency,
     };
   };
 
-  static orderResult = (leaderboard: LeaderBoard[]) => (
+  const filterResult = (leaderboard: LeaderBoard[]) => (
     leaderboard.sort((team1, team2) => {
       if (team1.totalPoints < team2.totalPoints) return 1;
       if (team1.totalPoints > team2.totalPoints) return -1;
@@ -116,13 +116,13 @@ class LeaderboardService {
     })
   );
 
-  static orderedResult = async () => {
+  const filteredResult = async () => {
     const teams = await TeamsModel.findAll();
 
     const leaderboard = await Promise.all(
       teams.map(async ({ id, teamName }) => {
-        const matches = await this.matchesByHomeId(id);
-        const result = this.buildResult(matches);
+        const matches = await matchesById(id);
+        const result = setupResult(matches);
         return {
           name: teamName,
           ...result,
@@ -130,10 +130,12 @@ class LeaderboardService {
       }),
     );
 
-    this.orderResult(leaderboard);
+    filterResult(leaderboard);
 
     return leaderboard;
   };
-}
 
-export default LeaderboardService;
+
+export default {
+  filteredResult,
+}

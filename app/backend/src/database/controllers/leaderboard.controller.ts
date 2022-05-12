@@ -3,7 +3,7 @@ import LeaderBoardService from '../services/leaderboard.service';
 
   const getLeaderboard = async (_req: Request, res: Response, next: NextFunction) => {
     try {
-      const result = await LeaderBoardService.orderedResult();
+      const result = await LeaderBoardService.filteredResult();
       return res.status(200).json(result);
     } catch (e) {
       next(e);
