@@ -3,7 +3,7 @@ import middlewares from './middlewares'
 import loginRoute from './routes/login.routes'
 import teamRoute from './routes/team.routes'
 import matchRoute from './routes/match.routes'
-import leaderboardRoute from './routes/leaderBoard.routes'
+import leaderboardRoute from './routes/leaderboard.routes'
 
 
 class App {

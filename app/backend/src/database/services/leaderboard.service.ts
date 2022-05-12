@@ -3,7 +3,7 @@ import { IMatch } from '../../interfaces/IMatch';
 import TeamsModel from '../models/Teams';
 import MatchesModel from '../models/Matches';
 
-class LeaderBoardService {
+class LeaderboardService {
   static matchesByHomeId = async (id: number) => (
     MatchesModel.findAll({ where: { homeTeam: id, inProgress: false } })
   );
@@ -136,4 +136,4 @@ class LeaderBoardService {
   };
 }
 
-export default LeaderBoardService;
+export default LeaderboardService;

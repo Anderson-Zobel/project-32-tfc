@@ -1,14 +1,15 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '.';
-import Teams from './Teams'
+import Teams from './Teams';
 
 export default class Matches extends Model {
   public id: number;
   public homeTeam: number;
-  public homeTeamGoals: number;
   public awayTeam: number;
+  public homeTeamGoals: number;
   public awayTeamGoals: number;
-  public inProgress: boolean; 
+  public inProgress: boolean;
+
 }
 
 Matches.init({
