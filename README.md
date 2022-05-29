@@ -1,10 +1,8 @@
 # [Back-end] TFC
 ## 📖 Sobre
 
-- A proposta desse projeto era desenvolver um app de receitas, utilizando React: Hooks e Context API.<br>
-- Os recursos disponíveis são: ver, buscar, filtrar, favoritar e acompanhar o processo de preparação de receitas e drinks.<br>
-- A base de dados são 2 APIs distintas, uma para comidas e outra para bebidas.<br>
-
+O TFC é um site informativo sobre partidas e classificações de futebol! ⚽️
+Back-end dockerizado utilizando modelagem de dados através do Sequelize. Seu desenvolvimento deve respeitar regras de negócio providas no projeto e sua API deve ser capaz de ser consumida por um front-end já provido nesse projeto.
 
 ## 🧰 Tecnologias  
 
