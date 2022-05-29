@@ -22,12 +22,15 @@
 - Projeto Final de Front-end realizado na [Trybe](https://www.betrybe.com/)<br>
 
 ## 🏃 Habilidades
- - Optar por usar _Redux_ ou _Context API_ para gerenciar estado
- - Utilizar a biblioteca _React-Redux_ (caso _Redux_ seja sua escolha)
- - Utilizar o _React Hook useState_
- - Utilizar o _React Hook useContext_
- - Utilizar o _React Hook useEffect_
- - Criar Hooks customizados
+
+O TFC é um site informativo sobre partidas e classificações de futebol! ⚽️
+Construir um back-end dockerizado utilizando modelagem de dados através do Sequelize. Seu desenvolvimento deve respeitar regras de negócio providas no projeto e sua API deve ser capaz de ser consumida por um front-end já provido nesse projeto.
+
+- Realizar a dockerização dos apps, network, volume e compose;
+- Modelar dados com MySQL através do Sequelize;
+- Criar e associar tabelas usando models do sequelize;
+- Construir uma API REST com endpoints para consumir os models criados;
+- Fazer um CRUD utilizando ORM;
 
 ## 📺 Preview do Projeto
 ![](receitas-app.gif)
