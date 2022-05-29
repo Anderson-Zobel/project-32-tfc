@@ -17,7 +17,8 @@ Back-end dockerizado utilizando modelagem de dados através do Sequelize. Seu de
 </div>
 
 ## 👷‍♂️ Desenvolvimento:
-- Projeto Final de Front-end realizado na [Trybe](https://www.betrybe.com/)<br>
+- Projeto Final de Back-end realizado na [Trybe](https://www.betrybe.com/)<br>
+- Realizado individualmente
 
 ## 🏃 Habilidades
 
