@@ -1,7 +1,7 @@
 # [Back-end] TFC
 ## 📖 Sobre
 
-O TFC é um site informativo sobre partidas e classificações de futebol! ⚽️
+O TFC é um site informativo sobre partidas e classificações de futebol! ⚽️ <br>
 Back-end dockerizado utilizando modelagem de dados através do Sequelize. Seu desenvolvimento deve respeitar regras de negócio providas no projeto e sua API deve ser capaz de ser consumida por um front-end já provido nesse projeto.
 
 ## 🧰 Tecnologias  
