@@ -12,8 +12,10 @@
 <div style="display: inline_block">
 
    <img align="center" alt="JS" width="30"      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />&nbsp;&nbsp;
-   <img align="center" alt="MYSQL" width="30"      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/mysqal-original.svg" />&nbsp;&nbsp;
-   <img align="center" alt="SEQUELIZE" width="30"      src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/sequelize-original.svg" />&nbsp;&nbsp;
+   <img align="center" alt="MySQL" width="45"   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" />&nbsp;&nbsp;
+   <img align="center" alt="NODEJS" width="45"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" />&nbsp;&nbsp;
+   <img align="center" alt="TS" width="45"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" />&nbsp;&nbsp;
+   <img align="center" alt="SEQUELIZE" width="45"  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" />&nbsp;&nbsp;
  
 </div>
 
