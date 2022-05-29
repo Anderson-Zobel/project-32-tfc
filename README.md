@@ -32,4 +32,4 @@ Construir um back-end dockerizado utilizando modelagem de dados através do Sequ
 - Fazer um CRUD utilizando ORM;
 
 ## 📺 Preview do Projeto
-![](receitas-app.gif)
+![]()
