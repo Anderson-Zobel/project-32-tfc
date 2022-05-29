@@ -23,9 +23,6 @@
 
 ## 🏃 Habilidades
 
-O TFC é um site informativo sobre partidas e classificações de futebol! ⚽️
-Construir um back-end dockerizado utilizando modelagem de dados através do Sequelize. Seu desenvolvimento deve respeitar regras de negócio providas no projeto e sua API deve ser capaz de ser consumida por um front-end já provido nesse projeto.
-
 - Realizar a dockerização dos apps, network, volume e compose;
 - Modelar dados com MySQL através do Sequelize;
 - Criar e associar tabelas usando models do sequelize;
