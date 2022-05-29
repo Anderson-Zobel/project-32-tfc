@@ -1,4 +1,4 @@
-# Recipes-APP 
+# [Back-end] TFC
 ## 📖 Sobre
 
 - A proposta desse projeto era desenvolver um app de receitas, utilizando React: Hooks e Context API.<br>
@@ -8,7 +8,7 @@
 
 ## 🧰 Tecnologias  
 
-**Stack: Front-end**
+**Stack: Back-end**
 <div style="display: inline_block">
  
    <img align="center" alt="HTML" width="30" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />&nbsp;&nbsp;
